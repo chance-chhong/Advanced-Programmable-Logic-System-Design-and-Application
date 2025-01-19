@@ -1,0 +1,18 @@
+/*VGA_640_480 VGA(
+		.iStart_n(1),
+		.CLK(1),
+		.RST_N(1),
+		
+		.iData_R(1),			//connect these pins to the q[](depends on how you store the pixel in SDRAM) of FIFO for SDRAM_read
+		.iData_G(1),			//connect these pins to the q[](depends on how you store the pixel in SDRAM) of FIFO for SDRAM_read
+		.iData_B(1),			//connect these pins to the q[](depends on how you store the pixel in SDRAM) of FIFO for SDRAM_read
+		
+		.oPixel_read_request(1),//connect this  pin  to the rdreq of FIFO for SDRAM_read
+		.oData_R(1),			//connect these pins to VGA_R[7:0]
+		.oData_G(1),			//connect these pins to VGA_G[7:0]
+		.oData_B(1),			//connect these pins to VGA_B[7:0]
+		.HSYNC(1),				//connect this  pin  to VGA_HS
+		.VSYNC(1),				//connect this  pin  to VGA_VS
+		.VGA_BLANK_N(1),		//connect this  pin  to VGA_BLANK_N
+		.VGA_SYNC_N(1)			//connect this  pin  to VGA_SYNC_N
+	);*/

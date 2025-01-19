@@ -1,0 +1,153 @@
+module VGA_640_480 (		
+	input				iStart_n,
+	input				iCLK,
+	input				iRST_N,
+	
+	input		[7:0]	iData_R,			//connect these pins to the q[](depends on how you store the pixel in SDRAM) of FIFO for SDRAM_read
+	input		[7:0]	iData_G,			//connect these pins to the q[](depends on how you store the pixel in SDRAM) of FIFO for SDRAM_read
+	input		[7:0]	iData_B,			//connect these pins to the q[](depends on how you store the pixel in SDRAM) of FIFO for SDRAM_read
+	
+	output				oPixel_read_request,//connect this  pin  to the rdreq of FIFO for SDRAM_read
+	output		[7:0]	oData_R,			//connect these pins to VGA_R[7:0]
+	output		[7:0]	oData_G,			//connect these pins to VGA_G[7:0]
+	output		[7:0]	oData_B,			//connect these pins to VGA_B[7:0]
+	output	reg			HSYNC,				//connect this  pin  to VGA_HS
+	output	reg			VSYNC,				//connect this  pin  to VGA_VS
+	output				VGA_BLANK_N,		//connect this  pin  to VGA_BLANK_N
+	output				VGA_SYNC_N			//connect this  pin  to VGA_SYNC_N
+	);
+
+//Output pins
+assign oPixel_read_request = pixel_read_request;
+assign oData_R = pixel_read_request_delay ? iData_R : 8'b0000_0000;
+assign oData_G = pixel_read_request_delay ? iData_G : 8'b0000_0000;
+assign oData_B = pixel_read_request_delay ? iData_B : 8'b0000_0000;
+assign VGA_BLANK_N = 1'b1;
+assign VGA_SYNC_N  = 1'b0;
+
+//	Horizontal Parameter	( Pixel )
+parameter	H_SYNC_CYC	=	96;
+parameter	H_SYNC_BACK	=	48;
+parameter	H_SYNC_ACT	=	640;
+parameter	H_SYNC_FRONT=	16;
+parameter	H_SYNC_TOTAL=	800;
+
+//	Virtical Parameter		( Line )
+parameter	V_SYNC_CYC	=	2;
+parameter	V_SYNC_BACK	=	33;
+parameter	V_SYNC_ACT	=	480;
+parameter	V_SYNC_FRONT=	10;
+parameter	V_SYNC_TOTAL=	525;
+//	Start Offset
+parameter	X_START		=	H_SYNC_CYC+H_SYNC_BACK;
+parameter	Y_START		=	V_SYNC_CYC+V_SYNC_BACK;
+
+
+//	Internal Registers and Wires
+reg		[11:0]		H_Cont = 12'b0;
+reg		[11:0]		V_Cont = 12'b0;
+
+reg pixel_read_request = 0;
+reg pixel_read_request_delay = 0;
+reg H_Sync = 0;
+reg V_Sync = 0;
+reg allow = 0;
+
+always@(posedge iCLK or negedge iRST_N)begin
+	if (!iRST_N) begin
+		allow <= 0;
+	end
+	else begin
+		if((!iStart_n)&&(V_Cont>=Y_START+V_SYNC_ACT))begin
+			allow <= 1;
+		end
+	end
+end
+
+always@(posedge iCLK or negedge iRST_N) begin
+	if(!iRST_N) begin
+		pixel_read_request	<=	0;
+	end else begin
+		if(allow)begin
+			if( H_Cont>=X_START && H_Cont<X_START+H_SYNC_ACT && V_Cont>=Y_START && V_Cont<Y_START+V_SYNC_ACT ) begin
+				pixel_read_request	<=	1;
+			end else begin
+				pixel_read_request	<=	0;
+			end
+		end else begin
+			pixel_read_request	<=	0;
+		end
+			
+	end
+end
+
+//	H_Sync Generator
+always@(posedge iCLK or negedge iRST_N) begin
+	if(!iRST_N) begin
+		H_Cont		<=	1'b0;
+		H_Sync	<=	1'b0;
+	end else begin
+		
+		//	H_Sync Counter
+		if(H_Cont < H_SYNC_TOTAL) begin
+			H_Cont	<=	H_Cont+1'b1;
+		end else begin
+			H_Cont	<=	1'b0;
+		end
+		
+		//	H_Sync Generator
+		if(H_Cont < H_SYNC_CYC) begin
+			H_Sync	<=	1'b0;
+		end else begin
+			H_Sync	<=	1'b1;
+		end
+		
+	end
+end
+
+//	V_Sync Generator
+always@(posedge iCLK or negedge iRST_N) begin
+	if (!iRST_N) begin
+		V_Cont		<=	1'b0;
+		V_Sync	<=	1'b0;
+	end else	begin
+		//	When H_Sync Re-start
+		if (H_Cont==0) begin
+			
+			//	V_Sync Counter
+			if (V_Cont < V_SYNC_TOTAL) begin
+				V_Cont	<=	V_Cont+1'b1;
+			end else begin
+				V_Cont	<=	1'b0;
+			end
+			
+			//	V_Sync Generator
+			if (V_Cont < V_SYNC_CYC) begin
+				V_Sync	<=	1'b0;
+			end else begin
+				V_Sync	<=	1'b1;
+			end
+			
+		end else begin
+			V_Cont		<=	V_Cont;
+			V_Sync <= V_Sync;
+		end
+		
+	end
+end
+
+//Delay one clock for SDRAM_read FIFO delay
+always@(posedge iCLK or negedge iRST_N)begin
+	if (!iRST_N) begin
+		pixel_read_request_delay <= 0;
+		HSYNC <= 0;
+		VSYNC <= 0;
+	end
+	else begin
+		pixel_read_request_delay <= pixel_read_request;
+		HSYNC <= H_Sync;
+		VSYNC <= V_Sync;
+	end
+end
+
+endmodule

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable>
+  <columns>
+   <connections preferredWidth="79" />
+   <irq preferredWidth="34" />
+  </columns>
+ </systemtable>
+ <clocktable>
+  <columns>
+   <clockname preferredWidth="168" />
+   <clocksource preferredWidth="167" />
+   <frequency preferredWidth="148" />
+  </columns>
+ </clocktable>
+ <window width="1920" height="1030" x="0" y="0" />
+ <library
+   expandedCategories="Library/Verification/Simulation,Library/Bridges,Library/Embedded Processors,Library/Interface Protocols/Ethernet,Library/Qsys Interconnect,Project,Library/Verification,Library/Memories and Memory Controllers/External Memory Interfaces/Memory Models,Library/Memories and Memory Controllers/External Memory Interfaces/QDR II Interfaces,Library/Bridges and Adapters,Library/Memories and Memory Controllers/External Memory Interfaces/Memory Interfaces,Library/Qsys Interconnect/AHB,Library/Memories and Memory Controllers/External Memory Interfaces/RLDRAM II Interfaces,Library/Memories and Memory Controllers/External Memory Interfaces/Memory Interfaces/Flash,Library/Interface Protocols/Ethernet/Submodules,Library/Bridges/Memory-Mapped,Library/Configuration &amp; Programming,Library/DSP/Video and Image Processing,Library/Qsys Interconnect/Memory-Mapped,Library/Memories and Memory Controllers,Library/Bridges/Streaming,Library/Peripherals,Library/DSP,Library/Interface Protocols/Serial,Library/Interface Protocols/PCI,Library/Interface Protocols/Ethernet/Example,Library/Qsys Interconnect/Tri-State Components,Library/Bridges and Adapters/DMA,Library/Peripherals/Debug and Performance,Library/Memories and Memory Controllers/External Memory Interfaces/RLDRAM 3 Interfaces,Library/Memories and Memory Controllers/External Memory Interfaces/Performance Monitors,Library/Memories and Memory Controllers/External Memory Interfaces/DDR Interfaces,Library/Memories and Memory Controllers/External Memory Interfaces/DDR2 Interfaces,Library/Memories and Memory Controllers/External Memory Interfaces/Flash Interfaces,Library/Interface Protocols/Ethernet/Example Designs,Library/Memories and Memory Controllers/On-Chip,Library/Memories and Memory Controllers/External Memory Interfaces/DDR3 Interfaces,Library/Memories and Memory Controllers/External Memory Interfaces,Library/Verification/Debug &amp; Performance,Library/Memories and Memory Controllers/External Memory Interfaces/LPDDR2 Interfaces,Library,Library/Interface Protocols" />
+ <hdlexample language="VERILOG" />
+</preferences>
