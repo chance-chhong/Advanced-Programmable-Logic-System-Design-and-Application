@@ -1,0 +1,38 @@
+|LAB4
+SW[0] => count[0].ACLR
+SW[0] => count[1].ACLR
+SW[0] => count[2].ACLR
+SW[0] => count[3].ACLR
+SW[1] => always0.IN0
+SW[1] => always0.IN0
+SW[1] => always0.IN0
+SW[2] => always0.IN1
+SW[2] => always0.IN1
+SW[2] => always0.IN1
+KEY[0] => count[0].CLK
+KEY[0] => count[1].CLK
+KEY[0] => count[2].CLK
+KEY[0] => count[3].CLK
+HEX0[0] <= seg_decoder:display.port1
+HEX0[1] <= seg_decoder:display.port1
+HEX0[2] <= seg_decoder:display.port1
+HEX0[3] <= seg_decoder:display.port1
+HEX0[4] <= seg_decoder:display.port1
+HEX0[5] <= seg_decoder:display.port1
+HEX0[6] <= seg_decoder:display.port1
+
+
+|LAB4|seg_decoder:display
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

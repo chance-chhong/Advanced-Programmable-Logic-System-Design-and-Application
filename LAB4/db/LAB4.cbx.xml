@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="LAB4">
+		<CBX_INST_ENTRY INSTANCE_NAME="|LAB4|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_42m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LAB4|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_42m.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

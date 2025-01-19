@@ -1,0 +1,9 @@
+module LAB6 (KEY, LEDR, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
+	input [2:0] KEY;
+	output [7:0] LEDR;
+	output [6:0] HEX5, HEX4, HEX3, HEX2, HEX1, HEX0;
+	
+
+endmodule
+
+
