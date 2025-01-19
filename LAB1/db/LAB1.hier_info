@@ -1,0 +1,246 @@
+|LAB1
+SW[0] => SW[0].IN2
+SW[1] => SW[1].IN2
+SW[2] => SW[2].IN2
+SW[3] => SW[3].IN2
+SW[4] => SW[4].IN2
+SW[5] => SW[5].IN2
+SW[6] => SW[6].IN2
+SW[7] => SW[7].IN2
+SW[8] => SW[8].IN1
+HEX0[0] << two_digit_seg:B.port2
+HEX0[1] << two_digit_seg:B.port2
+HEX0[2] << two_digit_seg:B.port2
+HEX0[3] << two_digit_seg:B.port2
+HEX0[4] << two_digit_seg:B.port2
+HEX0[5] << two_digit_seg:B.port2
+HEX0[6] << two_digit_seg:B.port2
+HEX1[0] << two_digit_seg:B.port1
+HEX1[1] << two_digit_seg:B.port1
+HEX1[2] << two_digit_seg:B.port1
+HEX1[3] << two_digit_seg:B.port1
+HEX1[4] << two_digit_seg:B.port1
+HEX1[5] << two_digit_seg:B.port1
+HEX1[6] << two_digit_seg:B.port1
+HEX2[0] << two_digit_seg:A.port2
+HEX2[1] << two_digit_seg:A.port2
+HEX2[2] << two_digit_seg:A.port2
+HEX2[3] << two_digit_seg:A.port2
+HEX2[4] << two_digit_seg:A.port2
+HEX2[5] << two_digit_seg:A.port2
+HEX2[6] << two_digit_seg:A.port2
+HEX3[0] << two_digit_seg:A.port1
+HEX3[1] << two_digit_seg:A.port1
+HEX3[2] << two_digit_seg:A.port1
+HEX3[3] << two_digit_seg:A.port1
+HEX3[4] << two_digit_seg:A.port1
+HEX3[5] << two_digit_seg:A.port1
+HEX3[6] << two_digit_seg:A.port1
+HEX4[0] << two_digit_seg:result_de.port2
+HEX4[1] << two_digit_seg:result_de.port2
+HEX4[2] << two_digit_seg:result_de.port2
+HEX4[3] << two_digit_seg:result_de.port2
+HEX4[4] << two_digit_seg:result_de.port2
+HEX4[5] << two_digit_seg:result_de.port2
+HEX4[6] << two_digit_seg:result_de.port2
+HEX5[0] << two_digit_seg:result_de.port1
+HEX5[1] << two_digit_seg:result_de.port1
+HEX5[2] << two_digit_seg:result_de.port1
+HEX5[3] << two_digit_seg:result_de.port1
+HEX5[4] << two_digit_seg:result_de.port1
+HEX5[5] << two_digit_seg:result_de.port1
+HEX5[6] << two_digit_seg:result_de.port1
+LEDR[0] << <GND>
+LEDR[1] << <GND>
+LEDR[2] << <GND>
+LEDR[3] << <GND>
+LEDR[4] << <GND>
+LEDR[5] << <GND>
+LEDR[6] << <GND>
+LEDR[7] << <GND>
+LEDR[8] << <GND>
+LEDR[9] << always0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LAB1|two_digit_seg:A
+bcd[0] => Div0.IN8
+bcd[0] => Mod0.IN8
+bcd[1] => Div0.IN7
+bcd[1] => Mod0.IN7
+bcd[2] => Div0.IN6
+bcd[2] => Mod0.IN6
+bcd[3] => Div0.IN5
+bcd[3] => Mod0.IN5
+bcd[4] => Div0.IN4
+bcd[4] => Mod0.IN4
+seg1[0] <= seg_decoder:de1.port1
+seg1[1] <= seg_decoder:de1.port1
+seg1[2] <= seg_decoder:de1.port1
+seg1[3] <= seg_decoder:de1.port1
+seg1[4] <= seg_decoder:de1.port1
+seg1[5] <= seg_decoder:de1.port1
+seg1[6] <= seg_decoder:de1.port1
+seg0[0] <= seg_decoder:de0.port1
+seg0[1] <= seg_decoder:de0.port1
+seg0[2] <= seg_decoder:de0.port1
+seg0[3] <= seg_decoder:de0.port1
+seg0[4] <= seg_decoder:de0.port1
+seg0[5] <= seg_decoder:de0.port1
+seg0[6] <= seg_decoder:de0.port1
+
+
+|LAB1|two_digit_seg:A|seg_decoder:de1
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LAB1|two_digit_seg:A|seg_decoder:de0
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LAB1|two_digit_seg:B
+bcd[0] => Div0.IN8
+bcd[0] => Mod0.IN8
+bcd[1] => Div0.IN7
+bcd[1] => Mod0.IN7
+bcd[2] => Div0.IN6
+bcd[2] => Mod0.IN6
+bcd[3] => Div0.IN5
+bcd[3] => Mod0.IN5
+bcd[4] => Div0.IN4
+bcd[4] => Mod0.IN4
+seg1[0] <= seg_decoder:de1.port1
+seg1[1] <= seg_decoder:de1.port1
+seg1[2] <= seg_decoder:de1.port1
+seg1[3] <= seg_decoder:de1.port1
+seg1[4] <= seg_decoder:de1.port1
+seg1[5] <= seg_decoder:de1.port1
+seg1[6] <= seg_decoder:de1.port1
+seg0[0] <= seg_decoder:de0.port1
+seg0[1] <= seg_decoder:de0.port1
+seg0[2] <= seg_decoder:de0.port1
+seg0[3] <= seg_decoder:de0.port1
+seg0[4] <= seg_decoder:de0.port1
+seg0[5] <= seg_decoder:de0.port1
+seg0[6] <= seg_decoder:de0.port1
+
+
+|LAB1|two_digit_seg:B|seg_decoder:de1
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LAB1|two_digit_seg:B|seg_decoder:de0
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LAB1|full_adder:FA
+a[0] => _.DATAD
+a[1] => _.DATAD
+a[2] => _.DATAD
+a[3] => _.DATAD
+b[0] => _.DATAC
+b[1] => _.DATAC
+b[2] => _.DATAC
+b[3] => _.DATAC
+c_in => _.DATAB
+c_out <= _.SUM_OUT
+sum[0] <= _.SUM_OUT
+sum[1] <= _.SUM_OUT
+sum[2] <= _.SUM_OUT
+sum[3] <= _.SUM_OUT
+
+
+|LAB1|two_digit_seg:result_de
+bcd[0] => Div0.IN8
+bcd[0] => Mod0.IN8
+bcd[1] => Div0.IN7
+bcd[1] => Mod0.IN7
+bcd[2] => Div0.IN6
+bcd[2] => Mod0.IN6
+bcd[3] => Div0.IN5
+bcd[3] => Mod0.IN5
+bcd[4] => Div0.IN4
+bcd[4] => Mod0.IN4
+seg1[0] <= seg_decoder:de1.port1
+seg1[1] <= seg_decoder:de1.port1
+seg1[2] <= seg_decoder:de1.port1
+seg1[3] <= seg_decoder:de1.port1
+seg1[4] <= seg_decoder:de1.port1
+seg1[5] <= seg_decoder:de1.port1
+seg1[6] <= seg_decoder:de1.port1
+seg0[0] <= seg_decoder:de0.port1
+seg0[1] <= seg_decoder:de0.port1
+seg0[2] <= seg_decoder:de0.port1
+seg0[3] <= seg_decoder:de0.port1
+seg0[4] <= seg_decoder:de0.port1
+seg0[5] <= seg_decoder:de0.port1
+seg0[6] <= seg_decoder:de0.port1
+
+
+|LAB1|two_digit_seg:result_de|seg_decoder:de1
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LAB1|two_digit_seg:result_de|seg_decoder:de0
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,25 @@
+module LAB1_2 (SW, HEX0, HEX1);
+	input [3:0] SW;
+	output [6:0] HEX0, HEX1;
+	
+	two_digit_seg A(SW[3:0], HEX1, HEX0);
+endmodule
+
+//display two digit in seg
+module two_digit_seg (bcd, seg1, seg0);
+	input [3:0] bcd;
+	output [6:0] seg1, seg0;
+	
+	seg_decoder de1(bcd/10, seg1);
+	seg_decoder de0(bcd%10, seg0);
+endmodule
+
+//4bit full adder
+module full_adder (a, b, c_in, c_out, sum);
+	input c_in;
+	input [3:0] a, b;
+	output c_out;
+	output [3:0] sum;
+	
+	assign {c_out, sum} = a + b + c_in;
+endmodule

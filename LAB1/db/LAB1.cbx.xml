@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="LAB1">
+		<CBX_INST_ENTRY INSTANCE_NAME="|LAB1|two_digit_seg:A|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_52m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LAB1|two_digit_seg:B|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_52m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LAB1|two_digit_seg:result_de|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_2am.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LAB1|two_digit_seg:result_de|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_52m.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

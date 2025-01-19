@@ -1,0 +1,5 @@
+module LAB1 (iSW, oLDER);
+input [17:0] iSW;
+output [17:0] oLDER;
+assign oLDER = iSW;
+endmodule

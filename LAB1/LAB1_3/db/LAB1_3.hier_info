@@ -1,0 +1,74 @@
+|LAB1_3
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+HEX0[0] <= two_digit_seg:A.port2
+HEX0[1] <= two_digit_seg:A.port2
+HEX0[2] <= two_digit_seg:A.port2
+HEX0[3] <= two_digit_seg:A.port2
+HEX0[4] <= two_digit_seg:A.port2
+HEX0[5] <= two_digit_seg:A.port2
+HEX0[6] <= two_digit_seg:A.port2
+HEX1[0] <= two_digit_seg:A.port1
+HEX1[1] <= two_digit_seg:A.port1
+HEX1[2] <= two_digit_seg:A.port1
+HEX1[3] <= two_digit_seg:A.port1
+HEX1[4] <= two_digit_seg:A.port1
+HEX1[5] <= two_digit_seg:A.port1
+HEX1[6] <= two_digit_seg:A.port1
+
+
+|LAB1_3|two_digit_seg:A
+bcd[0] => Div0.IN7
+bcd[0] => Mod0.IN7
+bcd[1] => Div0.IN6
+bcd[1] => Mod0.IN6
+bcd[2] => Div0.IN5
+bcd[2] => Mod0.IN5
+bcd[3] => Div0.IN4
+bcd[3] => Mod0.IN4
+seg1[0] <= seg_decoder:de1.port1
+seg1[1] <= seg_decoder:de1.port1
+seg1[2] <= seg_decoder:de1.port1
+seg1[3] <= seg_decoder:de1.port1
+seg1[4] <= seg_decoder:de1.port1
+seg1[5] <= seg_decoder:de1.port1
+seg1[6] <= seg_decoder:de1.port1
+seg0[0] <= seg_decoder:de0.port1
+seg0[1] <= seg_decoder:de0.port1
+seg0[2] <= seg_decoder:de0.port1
+seg0[3] <= seg_decoder:de0.port1
+seg0[4] <= seg_decoder:de0.port1
+seg0[5] <= seg_decoder:de0.port1
+seg0[6] <= seg_decoder:de0.port1
+
+
+|LAB1_3|two_digit_seg:A|seg_decoder:de1
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LAB1_3|two_digit_seg:A|seg_decoder:de0
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

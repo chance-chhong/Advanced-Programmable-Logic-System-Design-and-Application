@@ -1,0 +1,40 @@
+|LAB1_1
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => ~NO_FANOUT~
+SW[9] => SW[9].IN1
+LEDR[0] <= multiplexer_2to1:mux.port3
+LEDR[1] <= multiplexer_2to1:mux.port3
+LEDR[2] <= multiplexer_2to1:mux.port3
+LEDR[3] <= multiplexer_2to1:mux.port3
+
+
+|LAB1_1|multiplexer_2to1:mux
+x[0] => led.IN0
+x[1] => led.IN0
+x[2] => led.IN0
+x[3] => led.IN0
+y[0] => led.IN0
+y[1] => led.IN0
+y[2] => led.IN0
+y[3] => led.IN0
+s => led.IN1
+s => led.IN1
+s => led.IN1
+s => led.IN1
+s => led.IN1
+s => led.IN1
+s => led.IN1
+s => led.IN1
+led[0] <= led.DB_MAX_OUTPUT_PORT_TYPE
+led[1] <= led.DB_MAX_OUTPUT_PORT_TYPE
+led[2] <= led.DB_MAX_OUTPUT_PORT_TYPE
+led[3] <= led.DB_MAX_OUTPUT_PORT_TYPE
+
+
